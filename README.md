@@ -5,7 +5,6 @@
     <br> Vennom 🐍 <br>
 </h1>
 
-<!-- <hr> -->
 <p align="center">
 A <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank"> Venn diagram </a> generator made in python.
 </p>
