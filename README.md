@@ -1,13 +1,15 @@
 <h1 align="center">
     <a href="https://github.com/JuniorWriter/Vennom" target="_blank">
-        <img src="assets/vennom_imgtipo.png" alt="Vennom Logo" width="80%"/>
+        <img src="assets/vennom_imgtipo.png" alt="Vennom Logo" width="60%"/>
     </a>
     <br> Vennom 🐍 <br>
 </h1>
 
 <!-- <hr> -->
 <p align="center">
-A <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank"> Venn diagram </a> generator made in python.
+    <h5>
+    A <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank"> Venn diagram </a> generator made in python.
+    </h5>
 </p>
 <br>
 
@@ -29,3 +31,9 @@ A <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank"> Venn dia
     title="Release"> <img src="https://img.shields.io/github/release-date/JuniorWriter/Vennom?style=solid">
     </a>
 </p>
+
+<p align="center">
+    Vennom is a terminal program that helps you make Venn diagrams of an equation using the <a href="https://github.com/konstantint/matplotlib-venn" target="_blank">matplotlib-venn</a> library that provides easy Venn diagrams manipulation.
+</p>
+
+<hr>
