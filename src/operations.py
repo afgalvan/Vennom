@@ -10,6 +10,8 @@ zones2 = ("100", "110", "010",)
 
 
 def clear():
+    """Clear the terminal using the platform module to detect the
+    enviroment."""
     if OS == "Windows":
         call("cls", shell=True)
     else:
@@ -17,6 +19,8 @@ def clear():
 
 
 def two_sets_process(user_input, sets):
+    """Manage all the methods and functions to make operations with two
+    sets to show the graphic result."""
     set_names = list(sets.keys())
     set_names.sort()
     set_zones = {}
@@ -37,6 +41,8 @@ def two_sets_process(user_input, sets):
 
 
 def count_sets(user_input):
+    """Count the sets quantity given by the user and return
+    a dictionary with the count of each one"""
     sets = {}
     for each in user_input:
         if each in "ABC":
@@ -45,6 +51,8 @@ def count_sets(user_input):
 
 
 def is_ordered(user_input):
+    """Check if the equation entered have a logic order
+    such as "a - b" """
     elements = findall("[ABCU\∩\-\'\∆\)\(]+?", user_input)
     elements_chunk = len(elements)
     if fullmatch("[U\∩\-\'\∆]+", elements[0]):
@@ -57,6 +65,8 @@ def is_ordered(user_input):
 
 
 def validate_input():
+    """Ask the user the equation and validate that only enter allowed
+    variables, set names and operations"""
     #  clear()
     while True:
         user_input = input("\nIngrese la ecuación: ")
