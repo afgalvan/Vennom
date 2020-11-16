@@ -7,7 +7,7 @@
 
 <!-- <hr> -->
 <p align="center">
-    <h5>
+    <h5 align="center">
     A <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank"> Venn diagram </a> generator made in python.
     </h5>
 </p>
@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-    Vennom is a terminal program that helps you make Venn diagrams of an equation using the <a href="https://github.com/konstantint/matplotlib-venn" target="_blank">matplotlib-venn</a> library that provides easy Venn diagrams manipulation.
+    Vennom is a CLI/GUI program that helps you make Venn diagrams of an equation using the <a href="https://github.com/konstantint/matplotlib-venn" target="_blank">matplotlib-venn</a> library, that provides easy Venn diagrams manipulation.
 </p>
 
 <hr>
