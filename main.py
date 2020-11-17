@@ -1,8 +1,5 @@
 from sys import path
-try:
-    path.append("../public")
-    from main import main
-except:
-    path.append("public")
-    from main import main
-main()
+from public.index import *
+
+if __name__ == "__main__":
+    main()
