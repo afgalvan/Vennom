@@ -1,5 +1,23 @@
 from tkinter import *
-from button_actions import *
+from public.button_actions import *
+
+
+def components(root):
+    # TODO: function to find the result
+    # the label that shows the result
+    data = StringVar()
+    share_data(data)
+    lbl = Label(
+        root,
+        text="Label",
+        anchor=SE,
+        font=("Verdana", 20),
+        textvariable=data,
+        background="#ffffff",
+        fg="#000000",
+    )
+    lbl.pack(expand=True, fill="both")
+    display_buttons(root)
 
 
 def display_buttons(root):
@@ -46,7 +64,7 @@ def display_buttons(root):
 
     btn_del = Button(
         btnrow1,
-        text="←",
+        text="⟵",
         font=("Verdana", 22),
         relief=GROOVE,
         border=0,

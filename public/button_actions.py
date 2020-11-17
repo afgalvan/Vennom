@@ -1,7 +1,9 @@
 from tkinter import *
-from main import val, A, operator
 
 data = ""
+val = ""
+A = 0
+operator = ""
 
 
 def share_data(parsed):
@@ -12,19 +14,19 @@ def share_data(parsed):
 # function for numerical button clicked
 def btn_A_clicked():
     global val, data
-    val += " A "
+    val += "A"
     data.set(val)
 
 
 def btn_B_clicked():
     global val, data
-    val += " B "
+    val += "B"
     data.set(val)
 
 
 def btn_C_clicked():
     global val, data
-    val += " C "
+    val += "C"
     data.set(val)
 
 
