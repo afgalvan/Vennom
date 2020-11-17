@@ -27,6 +27,29 @@ def two_sets_process(user_input, sets):
     set_zones[set_names[0]] = {"100", "110"}
     set_zones[set_names[1]] = {"110", "010"}
 
+    user_input = user_input.replace("(", "")
+    user_input = user_input.replace(" ", "")
+    divided_equation = user_input.split(")")
+
+    elements = findall("[ABCU\∩\-\'\∆]+?", user_input)
+    elements_chunk = len(elements)
+    for i in elements:
+        if i in "ABC":
+            set_result = set_zones[i]
+            break
+    for i in range(elements_chunk):
+        if elements[i] in "ABC" and i+1 < elements_chunk:
+            if elements[i+1] == "-":
+                set_result = set_result - set_zones[elements[i+2]]
+            elif elements[i+1] == "U":
+                set_result = set_result.union(set_zones[elements[i+2]])
+            elif elements[i+1] == "∩":
+                set_result = set_result.intersection(
+                    set_zones[elements[i+2]])
+            elif elements[i+1] == "∆":
+                set_result = set_result.symmetric_difference(
+                    set_zones[elements[i+2]])
+
     v = venn2(subsets=(1, 1, 1), set_labels=(set_names[0], set_names[1]))
     for i in zones2:
         v.get_patch_by_id(i).set_color("white")
@@ -36,6 +59,9 @@ def two_sets_process(user_input, sets):
     for i in range(len(c)):
         c[i].set_lw(1.0)
         c[i].set_ls("solid")
+
+    for i in set_result:
+        v.get_patch_by_id(i).set_color("red")
 
     plt.show()
 
@@ -57,9 +83,14 @@ def is_ordered(user_input):
     elements_chunk = len(elements)
     if fullmatch("[U\∩\-\'\∆]+", elements[0]):
         return False
+    if fullmatch("[U\∩\-\'\∆]+", elements[-1]):
+        return False
     for i in range(elements_chunk):
         if elements[i] in "ABC" and i+1 != len(elements):
             if not fullmatch("[U\∩\-\'\∆\)\(]+", elements[i+1]):
+                return False
+        elif elements[i] in "U\∩\-\'\∆" and i+1 != len(elements):
+            if elements[i+1] not in "ABC()" and i+1 != len(elements):
                 return False
     return True
 
@@ -71,11 +102,14 @@ def validate_input():
     while True:
         user_input = input("\nIngrese la ecuación: ")
         user_input = user_input.upper()
-        if not fullmatch("[\ ABCU\∩\-\'\∆\)\(]+", user_input):
-            print("Error")
+        if not user_input.replace(" ", ""):
+            print("Error. empty")
             continue
-        if not is_ordered(user_input):
-            print("Error")
+        elif not fullmatch("[\ ABCU\∩\-\'\∆\)\(]+", user_input):
+            print("Error. not in list")
+            continue
+        elif not is_ordered(user_input):
+            print("Error. unordered")
             continue
         break
     sets = count_sets(user_input)
@@ -86,7 +120,8 @@ def validate_input():
 
 
 def main():
-    validate_input()
+    while True:
+        validate_input()
 
 if __name__ == "__main__":
     main()
