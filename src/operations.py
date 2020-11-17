@@ -89,8 +89,8 @@ def is_ordered(user_input):
         if elements[i] in "ABC" and i+1 != len(elements):
             if not fullmatch("[U\∩\-\'\∆\)\(]+", elements[i+1]):
                 return False
-        elif i+1 != len(elements):
-            if elements[i+1] not in "ABC" and i+1 != len(elements):
+        elif elements[i] in "U\∩\-\'\∆" and i+1 != len(elements):
+            if elements[i+1] not in "ABC()" and i+1 != len(elements):
                 return False
     return True
 
