@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="https://github.com/JuniorWriter/Vennom" target="_blank">
-        <img src="assets/vennom_imgtipo.png" alt="Vennom Logo" width="60%"/>
+        <img src="assets/vennom_imgtipo.png" alt="Vennom Logo" width="45%"/>
     </a>
     <br> Vennom 🐍 <br>
 </h1>
@@ -37,3 +37,11 @@
 </p>
 
 <hr>
+
+<p align="center">
+    <br> <strong> Calculator. </strong> <br>
+    <img src="assets/calculator.png" alt="Vennom Calculator" width="30%"/>
+    <br> <strong> Venn diagram generated. </strong> <br>
+    <img src="assets/venn_diagram.png" alt="Vennom Calculator" width="50%"/>
+    
+</p>
