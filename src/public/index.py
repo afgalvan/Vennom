@@ -1,5 +1,5 @@
-from tkinter import *
-from src.public.buttons import *
+from tkinter import Tk, PhotoImage
+from src.public.buttons import components
 
 
 def main():

@@ -1,12 +1,11 @@
-from tkinter import *
+from tkinter import Tk, StringVar, Label, Frame, Button, LEFT, GROOVE, SE
 from src.public.button_actions import *
 
 
-def components(root):
+def components(root: Tk):
     # TODO: function to find the result
     # the label that shows the result
     data = StringVar()
-    share_data(data)
     lbl = Label(
         root,
         text="Label",
@@ -16,11 +15,12 @@ def components(root):
         background="#ffffff",
         fg="#000000",
     )
+    share_data(data, lbl)
     lbl.pack(expand=True, fill="both")
     display_buttons(root)
 
 
-def display_buttons(root):
+def display_buttons(root: Tk):
     # the frames section
     btnrow1 = Frame(root)
     btnrow1.pack(expand=True, fill="both")
@@ -40,7 +40,11 @@ def display_buttons(root):
         border=0,
         command=btn_A_clicked,
     )
-    btnA.pack(side=LEFT, expand=True, fill="both",)
+    btnA.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btnB = Button(
         btnrow1,
@@ -50,7 +54,11 @@ def display_buttons(root):
         border=0,
         command=btn_B_clicked,
     )
-    btnB.pack(side=LEFT, expand=True, fill="both",)
+    btnB.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btnC = Button(
         btnrow1,
@@ -60,7 +68,11 @@ def display_buttons(root):
         border=0,
         command=btn_C_clicked,
     )
-    btnC.pack(side=LEFT, expand=True, fill="both",)
+    btnC.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn_del = Button(
         btnrow1,
@@ -70,7 +82,11 @@ def display_buttons(root):
         border=0,
         command=btn_del_clicked,
     )
-    btn_del.pack(side=LEFT, expand=True, fill="both",)
+    btn_del.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     # buttons for frame 2
 
@@ -82,7 +98,11 @@ def display_buttons(root):
         border=0,
         command=btn_diff_clicked,
     )
-    btn_dif.pack(side=LEFT, expand=True, fill="both",)
+    btn_dif.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn_union = Button(
         btnrow2,
@@ -92,7 +112,11 @@ def display_buttons(root):
         border=0,
         command=btn_union_clicked,
     )
-    btn_union.pack(side=LEFT, expand=True, fill="both",)
+    btn_union.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn_intersect = Button(
         btnrow2,
@@ -102,7 +126,11 @@ def display_buttons(root):
         border=0,
         command=btn_intersection_clicked,
     )
-    btn_intersect.pack(side=LEFT, expand=True, fill="both",)
+    btn_intersect.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn_parenth1 = Button(
         btnrow2,
@@ -112,7 +140,11 @@ def display_buttons(root):
         border=0,
         command=btn_parenthesis1,
     )
-    btn_parenth1.pack(side=LEFT, expand=True, fill="both",)
+    btn_parenth1.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn_parenth2 = Button(
         btnrow2,
@@ -122,7 +154,11 @@ def display_buttons(root):
         border=0,
         command=btn_parenthesis2,
     )
-    btn_parenth2.pack(side=LEFT, expand=True, fill="both",)
+    btn_parenth2.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     # button for frame 3
 
@@ -134,7 +170,11 @@ def display_buttons(root):
         border=0,
         command=btn_AC_clicked,
     )
-    btn7.pack(side=LEFT, expand=True, fill="both",)
+    btn7.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn8 = Button(
         btnrow3,
@@ -144,7 +184,11 @@ def display_buttons(root):
         border=0,
         command=btn_delta_clicked,
     )
-    btn8.pack(side=LEFT, expand=True, fill="both",)
+    btn8.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btn9 = Button(
         btnrow3,
@@ -154,7 +198,11 @@ def display_buttons(root):
         border=0,
         command=btn_prim_clicked,
     )
-    btn9.pack(side=LEFT, expand=True, fill="both",)
+    btn9.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )
 
     btnresult = Button(
         btnrow3,
@@ -164,4 +212,8 @@ def display_buttons(root):
         border=0,
         command=btn_result_clicked,
     )
-    btnresult.pack(side=LEFT, expand=True, fill="both",)
+    btnresult.pack(
+        side=LEFT,
+        expand=True,
+        fill="both",
+    )

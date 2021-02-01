@@ -1,30 +1,43 @@
-from tkinter import *
 from src.operations import *
+from tkinter import StringVar, Label
 
 data = ""
+text = ""
 val = ""
 A = 0
 operator = ""
 
 
-def share_data(parsed):
-    global data
+def share_data(parsed: StringVar, label: Label):
+    global data, text
     data = parsed
+    text = label
+
+
+def generic_button(base_button):
+    def btn_clicked():
+        base_button()
+        text.config(fg="black")
+        
+    return btn_clicked
 
 
 # function for numerical button clicked
+@generic_button
 def btn_A_clicked():
     global val, data
     val += "A"
     data.set(val)
 
 
+@generic_button
 def btn_B_clicked():
     global val, data
     val += "B"
     data.set(val)
 
 
+@generic_button
 def btn_C_clicked():
     global val, data
     val += "C"
@@ -32,6 +45,7 @@ def btn_C_clicked():
 
 
 # functions for the operator button click
+@generic_button
 def btn_diff_clicked():
     global operator, val, data
     operator = "-"
@@ -39,6 +53,7 @@ def btn_diff_clicked():
     data.set(val)
 
 
+@generic_button
 def btn_union_clicked():
     global operator, val, data
     operator = "U"
@@ -46,6 +61,7 @@ def btn_union_clicked():
     data.set(val)
 
 
+@generic_button
 def btn_intersection_clicked():
     global operator, val, data
     operator = "∩"
@@ -53,6 +69,7 @@ def btn_intersection_clicked():
     data.set(val)
 
 
+@generic_button
 def btn_delta_clicked():
     global operator, val, data
     val += "Δ"
@@ -60,6 +77,7 @@ def btn_delta_clicked():
     data.set(val)
 
 
+@generic_button
 def btn_prim_clicked():
     global operator, val, data
     val += "'"
@@ -67,12 +85,14 @@ def btn_prim_clicked():
     data.set(val)
 
 
+@generic_button
 def btn_parenthesis1():
     global operator, val, data
     val += "("
     data.set(val)
 
 
+@generic_button
 def btn_parenthesis2():
     global operator, val, data
     val += ")"
@@ -99,6 +119,14 @@ def btn_del_clicked():
 
 def btn_result_clicked():
     sets = count_sets(val)
+    operation = val
+    sets_chunk = len(sets)
     print(sets)
     print(val)
-    two_sets_process(val, sets)
+    btn_AC_clicked()
+
+    if not is_valid_input(operation) or sets_chunk < 2:
+        data.set("Error")
+        text.config(fg="red")
+    elif sets_chunk == 2:
+        two_sets_process(operation, sets)
