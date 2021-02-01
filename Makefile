@@ -1,4 +1,7 @@
-build: main.py
-	sudo apt-get install python-tk python3-tk tk-dev
-	sudo apt install sqlite3
-	pip3 install matplotlib-venn
+init: main.py
+	pip3 install pipenv
+	pipenv shell
+	pipenv install --ignore-pipfile
+
+run: main.py
+	pipenv run python3 main.py

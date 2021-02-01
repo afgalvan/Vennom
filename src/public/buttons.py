@@ -1,5 +1,5 @@
 from tkinter import *
-from public.button_actions import *
+from src.public.button_actions import *
 
 
 def components(root):
@@ -156,12 +156,12 @@ def display_buttons(root):
     )
     btn9.pack(side=LEFT, expand=True, fill="both",)
 
-    btnmult = Button(
+    btnresult = Button(
         btnrow3,
         text="=",
         font=("Verdana", 22),
         relief=GROOVE,
         border=0,
-        command=btn_prim_clicked,
+        command=btn_result_clicked,
     )
-    btnmult.pack(side=LEFT, expand=True, fill="both",)
+    btnresult.pack(side=LEFT, expand=True, fill="both",)
