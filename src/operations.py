@@ -11,7 +11,7 @@ zones2 = ("100", "110", "010",)
 
 def clear():
     """Clear the terminal using the platform module to detect the
-    enviroment."""
+    environment."""
     if OS == "Windows":
         call("cls", shell=True)
     else:
@@ -31,7 +31,7 @@ def two_sets_process(user_input, sets):
     user_input = user_input.replace(" ", "")
     divided_equation = user_input.split(")")
 
-    elements = findall("[ABCU\∩\-\'\∆]+?", user_input)
+    elements = findall("[ABCU\∩\-\'\Δ]+?", user_input)
     elements_chunk = len(elements)
     for i in elements:
         if i in "ABC":
@@ -46,7 +46,7 @@ def two_sets_process(user_input, sets):
             elif elements[i+1] == "∩":
                 set_result = set_result.intersection(
                     set_zones[elements[i+2]])
-            elif elements[i+1] == "∆":
+            elif elements[i+1] == "Δ":
                 set_result = set_result.symmetric_difference(
                     set_zones[elements[i+2]])
 
@@ -79,17 +79,17 @@ def count_sets(user_input):
 def is_ordered(user_input):
     """Check if the equation entered have a logic order
     such as "a - b" """
-    elements = findall("[ABCU\∩\-\'\∆\)\(]+?", user_input)
+    elements = findall("[ABCU\∩\-\'\Δ\)\(]+?", user_input)
     elements_chunk = len(elements)
-    if fullmatch("[U\∩\-\'\∆]+", elements[0]):
+    if fullmatch("[U\∩\-\'\Δ]+", elements[0]):
         return False
-    if fullmatch("[U\∩\-\'\∆]+", elements[-1]):
+    if fullmatch("[U\∩\-\'\Δ]+", elements[-1]):
         return False
     for i in range(elements_chunk):
         if elements[i] in "ABC" and i+1 != len(elements):
-            if not fullmatch("[U\∩\-\'\∆\)\(]+", elements[i+1]):
+            if not fullmatch("[U\∩\-\'\Δ\)\(]+", elements[i+1]):
                 return False
-        elif elements[i] in "U\∩\-\'\∆" and i+1 != len(elements):
+        elif elements[i] in "U\∩\-\'\Δ" and i+1 != len(elements):
             if elements[i+1] not in "ABC()" and i+1 != len(elements):
                 return False
     return True
@@ -105,7 +105,7 @@ def validate_input():
         if not user_input.replace(" ", ""):
             print("Error. empty")
             continue
-        elif not fullmatch("[\ ABCU\∩\-\'\∆\)\(]+", user_input):
+        elif not fullmatch("[\ ABCU\∩\-\'\Δ\)\(]+", user_input):
             print("Error. not in list")
             continue
         elif not is_ordered(user_input):
