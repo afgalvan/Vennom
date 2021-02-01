@@ -1,4 +1,5 @@
 from tkinter import *
+from src.operations import *
 
 data = ""
 val = ""
@@ -94,3 +95,10 @@ def btn_del_clicked():
         data.set(val)
     else:
         pass
+
+
+def btn_result_clicked():
+    sets = count_sets(val)
+    print(sets)
+    print(val)
+    two_sets_process(val, sets)
